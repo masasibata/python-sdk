@@ -119,7 +119,9 @@ class UserEventDto(BaseModel):
 
 class HwidUserDeviceDto(BaseModel):
     hwid: str
-    user_uuid: UUID
+    # API v2.8.0: userUuid заменён на userId (number), добавлен requestIp.
+    user_id: Optional[int] = None
+    request_ip: Optional[str] = None
     platform: Optional[str] = None
     os_version: Optional[str] = None
     device_model: Optional[str] = None
